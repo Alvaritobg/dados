@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <!--Bootstrap css & Responsive meta-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Font awsome iconos -->
+    <script src="https://kit.fontawesome.com/534dc02a7b.js" crossorigin="anonymous"></script>
+    <!--Css Propia-->
+    <link rel="stylesheet" href="css_dados.css">
+    <!--Fuentes custom-->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <meta charset="utf-8">
+
+    <title>Lanzar dados</title>
+
+  <script type="text/javascript">
+
+    window.onload=inicio;
+    var dados=["uno.png","dos.png","tres.png","cuatro.png","cinco.png","seis.png"];
+    var cantidad=dados.length;
+    var clicks = 0;
+    var tiradas = 4;
+
+
+
+    function empezar(){
+      document.getElementById("botonLanzar").innerHTML +=
+        `<button class="btn btn-warning text-justify my-3" id="lanzar"><i class="fas fa-arrow-right mr-1"></i> Pulsa para lanzar los dados <i class="fas fa-arrow-left ml-1"></i></button>
+        `;
+
+    }
+
+
+    function inicio(){
+      document.getElementById("lanzar").onclick = lanzar;
+      document.getElementById('tiradas').innerHTML = tiradas;
+
+
+    }
+
+
+    function reset(){
+      clicks = 0;
+      tiradas = 4;
+      document.getElementById("tapete").innerHTML = "";
+      document.getElementById("lanzar").disabled=false;
+      document.getElementById('tiradas').innerHTML = tiradas;
+
+    }
+
+    function lanzar(){
+      ++clicks;
+      --tiradas;
+      document.getElementById('tiradas').innerHTML = tiradas;
+
+
+      if (clicks <= 4) {
+
+        r=Math.floor(Math.random()*cantidad);
+        document.getElementById("tapete").innerHTML += `<div id="dado"><img src="img/${dados[r]}" alt="dados"></img></div>`;
+
+      }
+      else {
+        document.getElementById('tiradas').innerHTML = tiradas=0;
+        document.getElementById("tapete").innerHTML = `
+          <div class="alert alert-success mt-2 mb-0">
+          <h5 class="alert-heading">Ya tiraste todos los dados</h5>
+          <hr>
+          <button id="reset" class="btn btn-primary">Volver a empezar</button>
+          </div>
+          `;
+
+        document.getElementById("lanzar").disabled = true;
+        document.getElementById("reset").onclick = reset;
+
+
+        }
+
+      }
+
+
+  </script>
+
+  </head>
+  <body>
+      <div class="logo"><img src="img/logo.png" alt="logo" class="ml-5"></div>
+      <div class="tapeteimg">
+          <div id="tapete">
+
+          </div>
+          <div id="botonLanzar">
+            <button class="btn btn-warning text-justify my-3" id="lanzar"><i class="fas fa-arrow-right mr-1"></i> Pulsa para lanzar los dados <i class="fas fa-arrow-left ml-1"></i></button>
+            <p class="tiradas">Dados restantes: <b id="tiradas"></b></p>
+          </div>
+      </div>
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>

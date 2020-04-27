@@ -1,0 +1,113 @@
+body {
+  font-family: 'Questrial', sans-serif;
+  background-color: black;
+}
+
+h1 {
+ font-size: 5em;
+}
+.tapeteimg {
+    background: url(img/tapete.png) no-repeat fixed center;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+   height: 90%;
+   width: 90%;
+   text-align: center;
+   margin: 5%;
+   padding: 5%;
+   max-width: 100%;
+
+   border: solid 2px #fefdeb;
+   border-radius: 10px;
+}
+#tapete {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+#tapete div {
+  width: 45%;
+
+}
+.tiradas {
+color: white;
+
+}
+
+
+
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+  margin: 10px 0px 10px 10px;
+  padding: 10px;
+
+}
+.centrar {
+
+
+}
+.logo {
+  height: 90%;
+  width: 90%;
+  text-align: center;
+  margin: 0;
+  padding: 0px 0px 0px 0px;
+  max-width: 100%;
+}
+
+.logo img {
+width: 411px;
+margin-left: auto;
+margin-right: auto;
+margin-top: 0px;
+margin-bottom: 0px;
+
+}
+
+.dado {
+  margin: 5px;
+}
+
+#dado {
+    margin: 5px;
+
+}
+.margenes {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.instrucciones {
+  width: 100%;
+  margin: 5px 5px 5px 5px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.alert {
+  width: 60%;
+}
+
+@keyframes rotate {from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}}
+@-webkit-keyframes rotate {from {-webkit-transform: rotate(0deg);}
+  to {-webkit-transform: rotate(360deg);}}
+#dado{
+    -webkit-animation: 1s rotate linear;
+    animation: 1s rotate linear;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+
+}
+
+#dado:hover{
+
+}
